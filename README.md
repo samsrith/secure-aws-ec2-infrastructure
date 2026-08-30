@@ -155,6 +155,31 @@ Verified successful HTTP access to the EC2 web server.
 # 27. Blocked Port Test
 Verified that traffic to an unauthorized port was blocked.
 
+
+## Challenges & What I Learned
+
+During this project, I ran into several real AWS permission and connectivity issues and learned how to troubleshoot them.
+
+- Learned why `AmazonEC2FullAccess` does not automatically include IAM permissions.
+- Understood how `iam:PassRole` allows a user to attach a specific IAM role to an AWS service without granting full IAM access.
+- Used an EC2 IAM role instead of storing AWS access keys on the instance.
+- Troubleshot EC2 Instance Connect by allowing the correct AWS-managed prefix list for SSH access.
+- Learned how CloudWatch alarms, SNS notifications, and dashboards work together for monitoring.
+- Verified AWS API activity using CloudTrail event history and JSON event records.
+- Configured VPC Flow Logs with a dedicated service role and verified both `ACCEPT` and `REJECT` network traffic.
+- Practiced least-privilege IAM by granting only the permissions required for each task.
+
+### Key Takeaway
+
+This project helped me understand the difference between:
+
+**Security Groups** → control network access 
+**IAM Roles** → control AWS permissions 
+**CloudWatch** → monitors infrastructure health 
+**SNS** → sends alerts 
+**CloudTrail** → records AWS API activity 
+**VPC Flow Logs** → records allowed and blocked network traffic
+
 ## Clean Ups
 - VPC and subnet configuration
 - Route table
