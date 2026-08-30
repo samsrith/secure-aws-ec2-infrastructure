@@ -23,9 +23,7 @@ The environment includes:
 
 ## Architecture
 
-![AWS Architecture](architecture/aws-architecture.png)
-
-### Architecture Flow
+[Architecture Flow]
 
 - Internet → Internet Gateway → Public Route Table → Public Subnet → EC2
 - EC2 → IAM Role → S3 / CloudWatch
@@ -46,7 +44,7 @@ The environment includes:
 
 CloudWatch was used to monitor:
 
-- CPU utilization
+- CPU utilizon
 - Network traffic
 - EC2 status checks
 - Billing threshold
@@ -73,7 +71,91 @@ See the `architecture` folder for the project architecture diagram.
 
 ## Screenshots
 
-See the `screenshots` folder for implementation evidence including:
+## Implementation Screenshots
+
+# 1. IAM User Creation
+Created the `infra-admin` IAM user for day-to-day project administration.
+
+# 2. MFA Security
+Enabled MFA for the IAM user to improve account security.
+
+# 3. EC2 IAM Role
+Created the EC2 web server role and attached the required permission policies.
+
+# 4. Custom VPC
+Created a custom VPC with separate public and private subnets.
+
+# 5. Public Subnet
+Configured the public subnet for internet-facing resources.
+
+
+# 6. Private Subnet
+Created a private subnet to demonstrate network segmentation.
+
+# 7. Internet Gateway
+Attached an Internet Gateway to the custom VPC.
+
+# 8. Public Route Table
+Configured the public route table with a default route through the Internet Gateway.
+
+# 9. Security Groups
+Configured inbound rules for HTTP, restricted SSH, and private resource access.
+
+# 10. EC2 Instance
+Launched the Amazon Linux web server in the public subnet.
+
+# 11. IAM Role Verification from EC2
+Verified role-based access using `aws s3 ls` and `aws sts get-caller-identity`.
+
+# 12. EC2 Webpage
+Verified the Apache webpage running from the EC2 instance and displaying instance metadata.
+
+# 13. CloudWatch Alarms
+Configured CPU, status-check, and billing alarms.
+
+# 14. CPU Alarm Test
+Generated high CPU usage and verified the alarm entered the ALARM state.
+
+# 15. SNS Email Alert
+Verified that the monitoring alarm triggered an email notification.
+
+# 16. CloudTrail
+Configured AWS CloudTrail for infrastructure auditing.
+
+# 17. CloudTrail Event History
+Reviewed AWS management events recorded by CloudTrail.
+
+# 18. CloudTrail JSON Record
+Reviewed the detailed JSON audit record for a CloudTrail event.
+
+# 19. StartInstances Audit Event
+Verified that starting the EC2 instance was recorded by CloudTrail.
+
+# 20. StopInstances Audit Event
+Verified that stopping the EC2 instance was recorded.
+
+# 21. StopInstances JSON
+Reviewed the full CloudTrail JSON record for the stop-instance action.
+
+# 22. VPC Flow Logs
+Enabled VPC Flow Logs and delivered network records to CloudWatch Logs.
+
+# 23. ACCEPT Traffic
+Verified permitted network connections using ACCEPT flow-log records.
+
+# 24. REJECT Traffic
+Verified blocked network connections using REJECT flow-log records.
+
+# 25. ACCEPT and REJECT Comparison
+Captured both allowed and blocked network activity in the VPC Flow Logs.
+
+# 26. Allowed HTTP Test
+Verified successful HTTP access to the EC2 web server.
+
+# 27. Blocked Port Test
+Verified that traffic to an unauthorized port was blocked.
+
+## Clean Ups
 - VPC and subnet configuration
 - Route table
 - Security groups
@@ -82,9 +164,6 @@ See the `screenshots` folder for implementation evidence including:
 - CloudWatch dashboard
 - CloudTrail events
 - VPC Flow Logs
-
-## Cleanup
-
 
 ## Project Status
 
