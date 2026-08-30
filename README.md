@@ -2,6 +2,50 @@
 
 A hands-on AWS cloud infrastructure project focused on secure networking, IAM role-based access, monitoring, alerting, auditing, and network traffic visibility.
 
+
+## Project Highlights
+
+- Built a custom AWS VPC with public and private subnets
+- Deployed an Amazon Linux EC2 web server in the public subnet
+- Applied least-privilege IAM with role-based access
+- Restricted SSH and controlled application traffic using Security Groups
+- Configured CloudWatch monitoring, alarms, and dashboards
+- Integrated SNS email notifications for operational alerts
+- Enabled CloudTrail auditing with S3 log storage
+- Enabled VPC Flow Logs and verified both ACCEPT and REJECT traffic
+- Tested monitoring by intentionally generating high CPU utilization
+- Cleaned up AWS resources after completing the project
+
+## AWS Services Used
+
+`Amazon VPC` · `Amazon EC2` · `AWS IAM` · `Security Groups` · `Amazon CloudWatch` · `Amazon SNS` · `AWS CloudTrail` · `Amazon S3` · `VPC Flow Logs`
+
+## Architecture Summary
+
+``text
+Internet
+   ↓
+Internet Gateway
+   ↓
+Public Subnet
+   ↓
+EC2 Web Server
+   ↓
+IAM Role → AWS Services
+
+EC2 Metrics
+   ↓
+CloudWatch → Alarms → SNS → Email
+
+AWS API Activity
+   ↓
+CloudTrail → S3
+
+VPC Traffic
+   ↓
+VPC Flow Logs → CloudWatch Logs``
+
+
 ## Project Overview
 
 This project demonstrates how multiple AWS services work together to build a secure and monitored EC2-based web infrastructure.
