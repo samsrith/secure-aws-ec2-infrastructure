@@ -87,7 +87,7 @@ Delivered VPC Flow Logs to CloudWatch Logs and filtered the records to confirm b
 - MFA was enabled for the lab IAM user.
 - No private key, secret access key, password, or `.env` file is stored in this repository.
 - The `.gitignore` excludes common credential-file formats.
-- AWS account IDs, ARNs, IP addresses, and resource IDs visible in screenshots should be redacted before the repository is used as a public portfolio link.
+- Public screenshots redact AWS account IDs, ARNs, public IP addresses, temporary access-key IDs, and resource IDs while preserving implementation evidence.
 
 ## Cleanup
 
